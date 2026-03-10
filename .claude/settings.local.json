@@ -4,7 +4,8 @@
       "Bash(powershell.exe -Command \"Set-Location ''c:\\\\laragon\\\\www\\\\backend-1''; & ''C:\\\\laragon\\\\bin\\\\php\\\\php-8.3.9-nts-Win32-vs16-x64\\\\php.exe'' artisan db:seed --class=RolePermissionSeeder 2>&1\")",
       "Bash(powershell.exe -Command \"Set-Location ''c:\\\\laragon\\\\www\\\\backend-1''; & ''C:\\\\laragon\\\\bin\\\\php\\\\php-8.3.9-nts-Win32-vs16-x64\\\\php.exe'' artisan tinker --execute=\"\"echo ''Roles: ''; \\\\Spatie\\\\Permission\\\\Models\\\\Role::with\\(''permissions''\\)->get\\(\\)->each\\(fn\\($r\\) => print\\($r->name.'': ''.implode\\('', '', $r->permissions->pluck\\(''name''\\)->toArray\\(\\)\\).PHP_EOL\\)\\);\"\" 2>&1\")",
       "Bash(powershell.exe -Command \":*)",
-      "Bash(powershell.exe -File:*)"
+      "Bash(powershell.exe -File:*)",
+      "Bash(powershell.exe -Command \"Set-Location ''c:\\\\laragon\\\\www\\\\backend-1''; & ''C:\\\\laragon\\\\bin\\\\php\\\\php-8.3.9-nts-Win32-vs16-x64\\\\php.exe'' artisan db:seed 2>&1\")"
     ]
   }
 }
