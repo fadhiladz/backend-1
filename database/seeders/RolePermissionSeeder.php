@@ -40,5 +40,6 @@ class RolePermissionSeeder extends Seeder
         $admin->syncPermissions($permissions);
 
         Role::firstOrCreate(['name' => 'user', 'guard_name' => 'web']);
+        Role::firstOrCreate(['name' => 'client', 'guard_name' => 'web']);
     }
 }

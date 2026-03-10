@@ -1,10 +1,11 @@
-﻿<?php
+<?php
 
 namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,8 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call(RolePermissionSeeder::class);
 
         User::factory()->create([
-            ''name'' => ''Test User'',
-            ''email'' => ''test@example.com'',
-        ])->assignRole(''admin'');
+            'name' => 'Admin',
+            'email' => 'admin@system.com',
+            'password' => Hash::make(12341234)
+        ])->assignRole('admin');
     }
 }
