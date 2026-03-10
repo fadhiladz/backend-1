@@ -9,20 +9,21 @@ use Illuminate\Http\Request;
 
 class AuthenticatedSessionController extends Controller
 {
+    /**
+     * Handle an incoming authentication request.
+     */
     public function store(LoginRequest $request): JsonResponse
     {
         $request->authenticate();
 
-        $user = $request->user()->load('roles', 'permissions');
+        $request->session()->regenerate();
+
+        $user = $request->user();
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
-            'message' => 'Login successful.',
             'token' => $token,
-            'token_type' => 'Bearer',
-            'user' => $user,
-            'roles' => $user->getRoleNames(),
-            'permissions' => $user->getAllPermissions()->pluck('name'),
+            'user'  => $user,
         ]);
     }
 

@@ -5,17 +5,15 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class FriendRequestResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
         return [
             'id'         => $this->id,
-            'username'   => $this->username,
-            'email'      => $this->email,
+            'sender'     => new UserResource($this->whenLoaded('sender')),
+            'receiver'   => new UserResource($this->whenLoaded('receiver')),
             'status'     => $this->status,
-            'profile'    => new UserProfileResource($this->whenLoaded('profile')),
-            'sports'     => SportResource::collection($this->whenLoaded('sports')),
             'created_at' => $this->created_at,
         ];
     }
